@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roy de Graaf — Professionele Identiteit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #F4735A;
+    --coral: #F08C5C;
+    --amber: #F5B84C;
+    --cream: #FDF6EE;
+    --warm-white: #FFFAF4;
+    --ink: #1A1208;
+    --ink-light: #3D2B1A;
+    --muted: #8C7060;
+    --accent-line: #F4735A;
+    --section-gap: 120px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ─── HEADER / NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(253,246,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(244,115,90,0.15);
+  }
+  nav .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--rose);
+  }
+  nav ul {
+    display: flex; gap: 32px; list-style: none;
+  }
+  nav ul li a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  nav ul li a:hover { color: var(--rose); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--rose);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 6vw, 7rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .hero-subtitle {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 48px;
+    max-width: 380px;
+    line-height: 1.6;
+  }
+
+  .hero-meta {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .hero-meta span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    opacity: 0.7;
+  }
+  .hero-meta strong {
+    font-weight: 600;
+    color: var(--ink);
+    opacity: 1;
+  }
+
+  .hero-oneliner {
+    margin-top: 40px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--rose);
+    background: rgba(244,115,90,0.06);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--ink-light);
+    max-width: 380px;
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* SVG sunrise art for hero */
+  .hero-art {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  /* ─── INHOUDSOPGAVE ─── */
+  .toc {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 80px;
+  }
+  .toc-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 8px;
+    grid-column: 1 / -1;
+  }
+  .toc-sub {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+    grid-column: 1 / -1;
+    margin-top: -32px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .toc-item:hover .toc-title { color: var(--amber); }
+  .toc-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: rgba(245,184,76,0.3);
+    line-height: 1;
+    min-width: 48px;
+  }
+  .toc-text { flex: 1; }
+  .toc-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cream);
+    display: block;
+    margin-bottom: 4px;
+    transition: color 0.2s;
+  }
+  .toc-luk {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rose);
+  }
+
+  /* ─── SECTION BASE ─── */
+  .section {
+    padding: var(--section-gap) 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-full {
+    padding: var(--section-gap) 80px;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--rose);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .section-luk {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .body-text {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+    max-width: 680px;
+  }
+  .body-text + .body-text { margin-top: 24px; }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+    font-style: italic;
+    color: var(--rose);
+    line-height: 1.35;
+    padding: 40px 0;
+    border-top: 2px solid var(--rose);
+    border-bottom: 2px solid var(--rose);
+    margin: 56px 0;
+    max-width: 780px;
+  }
+
+  /* ─── GRID LAYOUTS ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--warm-white);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 2px;
+    padding: 32px;
+  }
+  .card-accent {
+    background: linear-gradient(135deg, var(--rose), var(--coral));
+    color: white;
+  }
+  .card-accent .card-title,
+  .card-accent p { color: white; }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .card p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* ─── HIGHLIGHT BOX ─── */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(244,115,90,0.08), rgba(245,184,76,0.08));
+    border-left: 4px solid var(--rose);
+    padding: 32px 40px;
+    margin: 40px 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .highlight-box .label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+  }
+  .highlight-box p {
+    font-size: 0.98rem;
+    line-height: 1.8;
+    color: var(--ink-light);
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rose) 30%, var(--amber) 70%, transparent);
+    margin: 0;
+    opacity: 0.4;
+  }
+
+  /* ─── SECTION BACKGROUNDS ─── */
+  .bg-dark {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .bg-dark .section-title { color: var(--amber); }
+  .bg-dark .body-text { color: rgba(253,246,238,0.8); }
+  .bg-dark .section-label { color: var(--coral); }
+  .bg-dark .section-label::before { background: var(--coral); }
+  .bg-dark .section-luk { color: rgba(253,246,238,0.4); border-color: rgba(255,255,255,0.1); }
+  .bg-dark .pull-quote { color: var(--amber); border-color: var(--amber); }
+  .bg-dark .card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+  .bg-dark .card-title { color: var(--cream); }
+  .bg-dark .card p { color: rgba(253,246,238,0.6); }
+  .bg-dark .highlight-box { background: rgba(244,115,90,0.1); }
+  .bg-dark .highlight-box p { color: rgba(253,246,238,0.85); }
+
+  .bg-warm {
+    background: linear-gradient(180deg, var(--cream) 0%, #FFF0E0 100%);
+  }
+
+  /* ─── SECTION 1: VISIE ─── */
+  .visie-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .thema-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 40px;
+  }
+  .tag {
+    padding: 8px 18px;
+    border: 1px solid var(--rose);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--rose);
+    letter-spacing: 0.06em;
+  }
+
+  .sidebar-visual {
+    position: sticky;
+    top: 100px;
+  }
+
+  /* ─── TIMELINE ─── */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    margin-top: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--rose), var(--amber));
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 40px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--rose);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--rose);
+  }
+  .timeline-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 8px;
+  }
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .timeline-text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  /* ─── COMPETENTIE BADGE ─── */
+  .badge-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+  .badge {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--rose), var(--amber));
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  /* ─── PROFILE GRID ─── */
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .profile-cell {
+    padding: 32px;
+    background: var(--warm-white);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .profile-cell:nth-child(1) { background: linear-gradient(135deg, var(--rose), var(--coral)); color: white; }
+  .profile-cell:nth-child(1) .cell-title,
+  .profile-cell:nth-child(1) p { color: white; }
+  .cell-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 16px;
+  }
+  .cell-title-white { color: rgba(255,255,255,0.75); }
+  .profile-cell p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--ink-light);
+  }
+
+  /* ─── GROEI METER ─── */
+  .growth-item {
+    margin-bottom: 28px;
+  }
+  .growth-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-light);
+  }
+  .growth-bar {
+    height: 6px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .growth-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--rose), var(--amber));
+    animation: fillBar 1.5s ease-out forwards;
+    transform-origin: left;
+  }
+  @keyframes fillBar {
+    from { width: 0; }
+  }
+
+  /* ─── ACTIVITEITEN ─── */
+  .act-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 40px;
+  }
+  .act-item {
+    padding: 24px 28px;
+    background: var(--warm-white);
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .act-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .act-text { font-size: 0.88rem; line-height: 1.65; color: var(--ink-light); }
+  .act-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 0.92rem; }
+
+  /* ─── NAWOORD ─── */
+  .nawoord {
+    background: linear-gradient(135deg, var(--rose) 0%, var(--coral) 50%, var(--amber) 100%);
+    padding: 120px 80px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .nawoord::before {
+    content: '"';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 30rem;
+    font-weight: 900;
+    opacity: 0.06;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .nawoord h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .nawoord p {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.9);
+    max-width: 680px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .nawoord .sig {
+    margin-top: 48px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: white;
+    position: relative;
+  }
+  .nawoord .sig-sub {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+    position: relative;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: rgba(253,246,238,0.4);
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+  footer strong { color: var(--amber); }
+
+  /* ─── CHAPTER OPENER ─── */
+  .chapter-opener {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .chapter-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(244,115,90,0.12);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    user-select: none;
+  }
+
+  /* ─── EXAMPLE STORY ─── */
+  .story-box {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 48px;
+    border-radius: 2px;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-box::before {
+    content: '✦';
+    position: absolute;
+    top: 24px; right: 32px;
+    font-size: 1.5rem;
+    color: var(--amber);
+    opacity: 0.6;
+  }
+  .story-box .story-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 20px;
+  }
+  .story-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .story-box p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(253,246,238,0.8);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    nav ul { gap: 20px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 80px 32px 48px; }
+    .hero-right { min-height: 300px; }
+    .toc { padding: 60px 32px; }
+    .toc-inner { grid-template-columns: 1fr; gap: 0; }
+    .section { padding: 80px 32px; }
+    .section-full { padding: 80px 32px; }
+    .two-col, .visie-grid, .profile-grid, .act-list { grid-template-columns: 1fr; }
+    .three-col { grid-template-columns: 1fr; }
+    .nawoord { padding: 80px 32px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px; }
+    .chapter-opener { grid-template-columns: 1fr; gap: 0; }
+    .chapter-number { font-size: 4rem; }
+  }
+
+  @media (max-width: 600px) {
+    nav ul { display: none; }
+    .hero-title { font-size: 3rem; }
+  }
+
+  /* ─── PRINT ─── */
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    nav { display: none !important; }
+    body { font-size: 11pt; }
+    .hero { min-height: auto; page-break-after: always; padding-top: 0; }
+    .section, .section-full { padding: 48pt 60pt; page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    .story-box, .highlight-box, .pull-quote { page-break-inside: avoid; }
+    .nawoord { page-break-before: always; }
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATIE ─── -->
+<nav>
+  <div class="brand">Roy de Graaf</div>
+  <ul>
+    <li><a href="#visie">Visie</a></li>
+    <li><a href="#uitdragen">Uitdragen</a></li>
+    <li><a href="#ontwikkeling">Ontwikkeling</a></li>
+    <li><a href="#profilering">Profilering</a></li>
+    <li><a href="#nawoord">Nawoord</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-label">Afstudeeropdracht ALO · HAN Nijmegen · 2025</div>
+    <h1 class="hero-title">
+      Roy<br>de<br><em>Graaf</em>
+    </h1>
+    <p class="hero-subtitle">"Leren bewegen met een lach, op je eigen niveau."</p>
+    <div class="hero-meta">
+      <span>LIO-stage bij <strong>Sportservice De Vallei, Ede</strong></span>
+      <span>Competentiegebied <strong>Professionele Identiteit</strong></span>
+      <span>LUK 9 & LUK 10</span>
+    </div>
+    <div class="hero-oneliner">
+      Een sportfanaat die van bewegen een feestje maakt.
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- SVG Sunrise Art -->
+    <svg class="hero-art" viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#1A1208"/>
+          <stop offset="40%" style="stop-color:#F4735A"/>
+          <stop offset="70%" style="stop-color:#F5B84C"/>
+          <stop offset="100%" style="stop-color:#FFF0C0"/>
+        </linearGradient>
+        <linearGradient id="sun-grad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientUnits="objectBoundingBox" id="sunGrad">
+          <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.9"/>
+          <stop offset="100%" style="stop-color:#F5B84C;stop-opacity:0.6"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="soft-glow">
+          <feGaussianBlur stdDeviation="30" result="coloredBlur"/>
+          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Sky background -->
+      <rect width="600" height="800" fill="url(#sky)"/>
+
+      <!-- Horizon glow -->
+      <ellipse cx="300" cy="480" rx="280" ry="80" fill="#F5B84C" opacity="0.3" filter="url(#soft-glow)"/>
+
+      <!-- Sun rays (behind sun) -->
+      <g transform="translate(300,420)" opacity="0.25">
+        <line x1="0" y1="-180" x2="0" y2="-250" stroke="#FFF0C0" stroke-width="2"/>
+        <line x1="0" y1="-180" x2="60" y2="-240" stroke="#FFF0C0" stroke-width="1.5" transform="rotate(20)"/>
+        <line x1="0" y1="-180" x2="60" y2="-240" stroke="#FFF0C0" stroke-width="1.5" transform="rotate(40)"/>
+        <line x1="0" y1="-180" x2="60" y2="-240" stroke="#FFF0C0" stroke-width="1.5" transform="rotate(-20)"/>
+        <line x1="0" y1="-180" x2="60" y2="-240" stroke="#FFF0C0" stroke-width="1.5" transform="rotate(-40)"/>
+        <line x1="0" y1="-180" x2="60" y2="-240" stroke="#FFF0C0" stroke-width="1" transform="rotate(60)"/>
+        <line x1="0" y1="-180" x2="60" y2="-240" stroke="#FFF0C0" stroke-width="1" transform="rotate(-60)"/>
+        <line x1="0" y1="-180" x2="60" y2="-240" stroke="#FFF0C0" stroke-width="0.8" transform="rotate(80)"/>
+        <line x1="0" y1="-180" x2="60" y2="-240" stroke="#FFF0C0" stroke-width="0.8" transform="rotate(-80)"/>
+      </g>
+
+      <!-- Sun -->
+      <circle cx="300" cy="430" r="72" fill="#F5B84C" opacity="0.9" filter="url(#glow)"/>
+      <circle cx="300" cy="430" r="56" fill="#FFD98A" opacity="0.95"/>
+      <circle cx="300" cy="430" r="36" fill="white" opacity="0.8"/>
+
+      <!-- Mountains / landscape -->
+      <polygon points="0,580 120,420 240,520 360,380 480,460 600,400 600,800 0,800" fill="#1A1208" opacity="0.9"/>
+      <polygon points="0,640 160,500 300,580 420,480 600,540 600,800 0,800" fill="#0E0A04" opacity="0.95"/>
+
+      <!-- Water reflection -->
+      <rect x="0" y="640" width="600" height="160" fill="#1A1208" opacity="0.4"/>
+      <ellipse cx="300" cy="700" rx="60" ry="8" fill="#F5B84C" opacity="0.3"/>
+      <line x1="260" y1="660" x2="340" y2="660" stroke="#F5B84C" stroke-width="2" opacity="0.4"/>
+      <line x1="255" y1="672" x2="345" y2="672" stroke="#F5B84C" stroke-width="1.5" opacity="0.3"/>
+      <line x1="265" y1="684" x2="335" y2="684" stroke="#F5B84C" stroke-width="1" opacity="0.25"/>
+
+      <!-- Decorative circles/rings -->
+      <circle cx="300" cy="430" r="100" fill="none" stroke="#F5B84C" stroke-width="1" opacity="0.15"/>
+      <circle cx="300" cy="430" r="130" fill="none" stroke="#F5B84C" stroke-width="0.5" opacity="0.1"/>
+      <circle cx="300" cy="430" r="165" fill="none" stroke="#F5B84C" stroke-width="0.5" opacity="0.08"/>
+
+      <!-- Stars (subtle) -->
+      <circle cx="80" cy="80" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="150" cy="50" r="1" fill="white" opacity="0.4"/>
+      <circle cx="480" cy="70" r="1.5" fill="white" opacity="0.5"/>
+      <circle cx="520" cy="110" r="1" fill="white" opacity="0.4"/>
+      <circle cx="40" cy="150" r="1" fill="white" opacity="0.3"/>
+      <circle cx="560" cy="30" r="1" fill="white" opacity="0.5"/>
+
+      <!-- Sport silhouettes (player kicking ball) -->
+      <g transform="translate(300, 355)" opacity="0.5">
+        <!-- Body -->
+        <circle cx="0" cy="-60" r="8" fill="#1A1208"/>
+        <line x1="0" y1="-52" x2="0" y2="-25" stroke="#1A1208" stroke-width="4" stroke-linecap="round"/>
+        <!-- Arms -->
+        <line x1="0" y1="-45" x2="-14" y2="-32" stroke="#1A1208" stroke-width="3" stroke-linecap="round"/>
+        <line x1="0" y1="-45" x2="14" y2="-38" stroke="#1A1208" stroke-width="3" stroke-linecap="round"/>
+        <!-- Legs -->
+        <line x1="0" y1="-25" x2="-8" y2="-5" stroke="#1A1208" stroke-width="4" stroke-linecap="round"/>
+        <line x1="-8" y1="-5" x2="-4" y2="10" stroke="#1A1208" stroke-width="3" stroke-linecap="round"/>
+        <line x1="0" y1="-25" x2="12" y2="-10" stroke="#1A1208" stroke-width="4" stroke-linecap="round"/>
+        <line x1="12" y1="-10" x2="22" y2="0" stroke="#1A1208" stroke-width="3" stroke-linecap="round"/>
+        <!-- Ball -->
+        <circle cx="30" cy="2" r="7" fill="#1A1208"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ─── INHOUDSOPGAVE ─── -->
+<section class="toc" id="inhoudsopgave">
+  <div class="toc-inner">
+    <h2>Inhouds&shy;opgave</h2>
+    <p class="toc-sub">Professionele Identiteit — LUK 9 & 10</p>
+
+    <div>
+      <a href="#visie" class="toc-item">
+        <span class="toc-num">01</span>
+        <span class="toc-text">
+          <span class="toc-title">Mijn Visie op Bewegen</span>
+          <span class="toc-luk">LUK 9.1 — Visie ontwikkelen</span>
+        </span>
+      </a>
+      <a href="#uitdragen" class="toc-item">
+        <span class="toc-num">02</span>
+        <span class="toc-text">
+          <span class="toc-title">Visie Uitdragen</span>
+          <span class="toc-luk">LUK 9.2 — Visie uitdragen</span>
+        </span>
+      </a>
+    </div>
+
+    <div>
+      <a href="#ontwikkeling" class="toc-item">
+        <span class="toc-num">03</span>
+        <span class="toc-text">
+          <span class="toc-title">Professionele Ontwikkeling</span>
+          <span class="toc-luk">LUK 10.1 — Ontwikkelen</span>
+        </span>
+      </a>
+      <a href="#profilering" class="toc-item">
+        <span class="toc-num">04</span>
+        <span class="toc-text">
+          <span class="toc-title">Profilering</span>
+          <span class="toc-luk">LUK 10.2 — Profileren</span>
+        </span>
+      </a>
+      <a href="#nawoord" class="toc-item">
+        <span class="toc-num">05</span>
+        <span class="toc-text">
+          <span class="toc-title">Nawoord</span>
+          <span class="toc-luk">Persoonlijke afsluiting</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── SECTIE 1: VISIE ─── -->
+<section id="visie">
+  <div class="section">
+    <div class="chapter-opener">
+      <div class="chapter-number">01</div>
+      <div>
+        <div class="section-label">Sectie één</div>
+        <h2 class="section-title">Mijn Visie op <em>Bewegen</em></h2>
+        <p class="section-luk">LUK 9.1 — Visie ontwikkelen · Heldere visie, invloeden benoemen, illustreren met praktijkervaringen</p>
+      </div>
+    </div>
+
+    <div class="visie-grid">
+      <div>
+        <p class="body-text">
+          Bewegen begint bij emotie. Het moment waarop plezier, spanning en trots samenkomen — precies dát is het moment waarop sport werkelijk betekenis krijgt. Niet de techniek, niet de uitslag, maar de <em>beleving</em> maakt het verschil. Voor mij staat plezier dan ook onwrikbaar centraal als fundament van alles wat ik als bewegingsopvoeder doe.
+        </p>
+
+        <div class="pull-quote">
+          "Wanneer een leerling straalt na iets wat even daarvoor onmogelijk leek — dat is precies waarom ik dit werk doe."
+        </div>
+
+        <p class="body-text">
+          Plezier is geen bijproduct van een goede les, het is het vertrekpunt. Leerlingen die positieve ervaringen opdoen tijdens sport en bewegen, zijn intrinsiek gemotiveerd om ook buiten de gymzaal actief te blijven. Die motivatie bouw je niet op door prestaties centraal te stellen, maar door succeservaringen te creëren — momenten waarop leerlingen denken: ik kán dit.
+        </p>
+        <p class="body-text">
+          Dit inzicht is niet abstract. Ik heb het steeds opnieuw zien gebeuren tijdens mijn stages bij Sportservice De Vallei in Ede, waar ik lesgeef op meerdere basisscholen in Ede, Wageningen en Harskamp, en ook als buurtsportcoach actief ben in de wijk. Telkens weer bevestigt de praktijk dat competentiegevoel, succeservaring en sociale verbinding de drie pijlers zijn van echte beweegmotivatie.
+        </p>
+
+        <div class="highlight-box">
+          <div class="label">Vormende ervaring</div>
+          <p>Meerdere keren heb ik meegemaakt dat een leerling aan de zijlijn ging zitten met de woorden "ik kan dit niet." Op het moment dat ik de oefening aanpaste aan zijn of haar niveau en het wél lukte, veranderde alles. De leerling ging stralen, deed weer mee, en zette andere leerlingen aan tot hetzelfde enthousiasme. Dat directe effect toont hoe sterk plezier samenhangt met succeservaring.</p>
+        </div>
+
+        <p class="body-text">
+          Naast de succeservaring is een veilig leerklimaat onmisbaar. Pas wanneer leerlingen weten dat ze fouten mogen maken — zonder te worden uitgelachen — durven ze écht te proberen. Die veiligheid is geen vanzelfsprekendheid; je bouwt haar bewust op, les na les.
+        </p>
+
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--ink);margin:48px 0 16px;">Maatschappelijke &amp; ethische thema's</h3>
+        <p class="body-text">
+          Mijn visie staat niet los van de samenleving. Kinderen bewegen steeds minder: onderzoek van Jantje Beton (2018) laat zien dat het aantal kinderen dat dagelijks buiten speelt significant is afgenomen. Deze ontwikkeling voel ik in mijn lessen — leerlingen die moeite hebben met basisbewegingen, die snel vermoeid zijn of bewegen als "niet-leuk" ervaren. Juist daardoor voel ik de verantwoordelijkheid om van iedere les een positieve beweegervaring te maken.
+        </p>
+        <p class="body-text">
+          Inclusie is daarbij een kernwaarde. Zeker in het SBO zijn de niveauverschillen groot. Door te differentiëren — meerdere varianten aanbieden, extra uitdaging voor sterkere bewegers — zorg ik ervoor dat iedere leerling op zijn of haar eigen niveau succesvol kan zijn. Wedstrijdvormen, waarbij ik aanvankelijk vanuit mijn eigen sportieve achtergrond aannam dat "winnen of verliezen" voor iedereen motiverend werkt, heb ik bewust teruggeschroefd. Niet elke leerling beleeft plezier aan competitie; voor sommigen is het juist een rem op deelname.
+        </p>
+
+        <div class="thema-tags">
+          <span class="tag">Plezier</span>
+          <span class="tag">Succeservaring</span>
+          <span class="tag">Inclusie</span>
+          <span class="tag">Veilig klimaat</span>
+          <span class="tag">Leven lang bewegen</span>
+          <span class="tag">Differentiëren</span>
+          <span class="tag">Prestatiedruk</span>
+        </div>
+      </div>
+
+      <div class="sidebar-visual">
+        <!-- SVG visual: three pillars -->
+        <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;margin-bottom:40px;">
+          <defs>
+            <linearGradient id="pillar1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#F4735A"/>
+              <stop offset="100%" style="stop-color:#F08C5C"/>
+            </linearGradient>
+            <linearGradient id="pillar2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#F08C5C"/>
+              <stop offset="100%" style="stop-color:#F5B84C"/>
+            </linearGradient>
+            <linearGradient id="pillar3" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#F5B84C"/>
+              <stop offset="100%" style="stop-color:#FFD98A"/>
+            </linearGradient>
+          </defs>
+          <!-- Background -->
+          <rect width="320" height="400" fill="#FDF6EE" rx="2"/>
+          <!-- Title -->
+          <text x="160" y="36" text-anchor="middle" font-family="Playfair Display, serif" font-size="16" font-weight="700" fill="#1A1208">Drie pijlers van motivatie</text>
+          <!-- Pillar 1 -->
+          <rect x="30" y="120" width="70" height="220" rx="2" fill="url(#pillar1)"/>
+          <text x="65" y="112" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#F4735A">PLEZIER</text>
+          <!-- Pillar 2 -->
+          <rect x="125" y="80" width="70" height="260" rx="2" fill="url(#pillar2)"/>
+          <text x="160" y="72" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#F08C5C">SUCCES</text>
+          <!-- Pillar 3 -->
+          <rect x="220" y="150" width="70" height="190" rx="2" fill="url(#pillar3)"/>
+          <text x="255" y="142" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#D4900A">VEILIGHEID</text>
+          <!-- Base -->
+          <rect x="20" y="340" width="280" height="12" rx="2" fill="#1A1208" opacity="0.08"/>
+          <!-- Arrow up -->
+          <text x="160" y="375" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#8C7060" letter-spacing="1">LEVEN LANG BEWEGEN</text>
+        </svg>
+
+        <div class="card">
+          <div class="card-title">Over Roy</div>
+          <p>23 jaar · Ede<br>Vooropleiding: CIOS Arnhem (niveau 4, Sport en Bewegen)<br>Hobbys: voetbal, padel, fitness<br><br>LIO-stage bij Sportservice De Vallei — met een groot hart voor sport en de mensen die daarin bewegen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── SECTIE 2: UITDRAGEN ─── -->
+<div class="bg-dark section-full" id="uitdragen">
+  <div class="section" style="max-width:1200px;margin:0 auto;">
+    <div class="chapter-opener" style="border-color:rgba(255,255,255,0.08);">
+      <div class="chapter-number" style="color:rgba(245,184,76,0.15);">02</div>
+      <div>
+        <div class="section-label">Sectie twee</div>
+        <h2 class="section-title">Visie <em>Uitdragen</em></h2>
+        <p class="section-luk">LUK 9.2 — Visie uitdragen · Overtuigend presenteren, normen & waarden, tegenstrijdigheden, praktijkvoorbeelden</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p class="body-text">
+          Een visie op papier is waardeloos als je haar niet laat zien in je handelen. Ik draag mijn visie uit in iedere keuze die ik maak: welke werkvorm ik kies, hoe ik een oefening uitleg, wat ik doe als een leerling dreigt af te haken. Het zit in de details.
+        </p>
+
+        <p class="body-text" style="margin-top:24px;">
+          In de praktijk vertaalt zich dit onder meer naar mijn werkwijze met spelvormen. Sport aanbieden vanuit spel maakt bewegen toegankelijker en leuker. Frisbee wordt geen technische vaardigheidsles, maar een doelspel met hoepels op de grond — ineens doet iedereen enthousiast mee. Acrogym bied ik niet als wedstrijd aan, maar als gezamenlijke creatie: leerlingen maken samen iets en zijn trots op wat zij hebben gemaakt. Die trots is voelbaar, en die voer ik door door hun resultaat met de juf te delen.
+        </p>
+
+        <div class="pull-quote">
+          "Het 3-om-1 principe is mijn manier om structuur én verrassing te combineren: drie weken vakinhoud, gevolgd door één les waarbij de groep samenkomt."
+        </div>
+
+        <p class="body-text">
+          Autonomie is een ander kernprincipe. Volgens Deci en Ryan (2004) vergroot autonomie de intrinsieke motivatie van leerlingen. Dit zie ik terug in mijn lessen wanneer ik leerlingen laat meedenken: een oefening aanpassen, zelf een tikspel bedenken, of kiezen op welk niveau ze willen deelnemen. Leerlingen die mede-eigenaar zijn van hun les, investeren meer in die les.
+        </p>
+
+        <p class="body-text" style="margin-top:24px;">
+          Tot slot speel ik bewust in op trends die leven in de klas. Door actuele elementen — zoals een bottle flip na een klim- en klauterparcours — te verweven in mijn lessen, sluit ik aan bij de belevingswereld van leerlingen. Het resultaat: herkenning, enthousiasme en een les die leerlingen bijblijft.
+        </p>
+      </div>
+
+      <div>
+        <div class="story-box">
+          <div class="story-label">✦ Praktijkvoorbeeld uit de les</div>
+          <h3>De Bottle Flip & de Acrogym-show</h3>
+          <p>
+            Twee momenten die mij zijn bijgebleven. Bij het klim- en klauterparcours integreerdede ik een bottle flip als afsluiter — en de klas ontplofte van enthousiasme. Een simpele toevoeging, maar één die perfect aansloot bij wat leerlingen al kennen en leuk vinden.
+          </p>
+          <p style="margin-top:16px;">
+            Bij acrogym draaide ik het concept om: geen wedstrijd, maar een gezamenlijke show. Leerlingen maakten samen een nummer, trots op wat ze hadden gecreëerd. Ik maakte een video en stuurde die naar hun juf. Het plezier en de saamhorigheid die ik op hun gezichten zag — dat is precies wat ik beoog.
+          </p>
+        </div>
+
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--amber);margin:40px 0 16px;">Waarden: ik versus de school</h3>
+
+        <p class="body-text">
+          Mijn waarden sluiten goed aan bij de missie van Sportservice De Vallei: plezier, toegankelijkheid en een actieve leefstijl centraal stellen. Toch waren er aanvankelijk ook spanningspunten. Ik houd van competitie — wedstrijdvormen energieschuiven. Maar ik heb geleerd dat dit niet voor alle leerlingen geldt. Vanuit de visie van mijn stageschool heb ik mijn aanbod verbreed, meer werkvormen ingezet waarbij samenwerken en ontdekken centraal staan. Dat is geen aanpassing waar ik me in verloor; het is een professionele groei die mijn repertoire heeft vergroot.
+        </p>
+
+        <div class="badge-row">
+          <span class="badge">Spelvormen</span>
+          <span class="badge">Autonomie</span>
+          <span class="badge">3-om-1</span>
+          <span class="badge">Differentiëren</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ─── SECTIE 3: ONTWIKKELING ─── -->
+<section id="ontwikkeling" class="bg-warm">
+  <div class="section">
+    <div class="chapter-opener">
+      <div class="chapter-number">03</div>
+      <div>
+        <div class="section-label">Sectie drie</div>
+        <h2 class="section-title">Professionele <em>Ontwikkeling</em></h2>
+        <p class="section-luk">LUK 10.1 — Ontwikkelen · Planmatig werken, hiaten signaleren, feedback verwerken, groei zichtbaar maken</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p class="body-text">
+          Professionele groei begint bij eerlijkheid over jezelf. Voor mij betekent dat: erkennen dat mijn eigen schoolgeschiedenis mijn manier van lesgeven heeft gekleurd — op een manier die ik lang niet volledig doorhad.
+        </p>
+
+        <div class="highlight-box">
+          <div class="label">Persoonlijk vertrekpunt</div>
+          <p>
+            Rond mijn tiende jaar maakte ik een dip door op de basisschool. Ik zat regelmatig op de gang en mocht geregeld niet deelnemen aan lessen. Die ervaringen zijn niet uitgewist; ze zitten in mij als docent. Ze maken dat ik leerlingen nooit buiten mijn les wil plaatsen — want ik weet hoe dat voelt. Maar diezelfde gedrevenheid maakte consequent handelen aanvankelijk moeilijk voor mij.
+          </p>
+        </div>
+
+        <p class="body-text">
+          Dit werd zichtbaar tijdens mijn stage. Mijn stagebegeleider confronteerde mij er vriendelijk maar direct mee: wanneer grenzen worden overschreden, moet je als docent consequent zijn. Niet om te straffen, maar om structuur en veiligheid te bieden aan de hele groep.
+        </p>
+
+        <p class="body-text" style="margin-top:24px;">
+          Ik heb dit feedback serieus genomen. Samen met mijn begeleider heb ik een actieplanpiramide opgesteld — een gestructureerde aanpak om mijn handelen stap voor stap te verbeteren. Het concrete resultaat: ik ben voor de les met leerlingen in gesprek gegaan en we hebben samen gedragsregels opgesteld. Leerlingen bepaalden zelf hoeveel waarschuwingen redelijk waren. Door hen eigenaarschap te geven over de spelregels, creëerde ik een systeem waar ik vervolgens helder op terug kon grijpen.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:32px;">Zichtbare groei</h3>
+
+        <div class="growth-item">
+          <div class="growth-label"><span>Consequent handelen</span><span style="color:var(--rose);font-weight:600;">Sterk gegroeid</span></div>
+          <div class="growth-bar"><div class="growth-fill" style="width:85%"></div></div>
+        </div>
+        <div class="growth-item">
+          <div class="growth-label"><span>Duidelijke grenzen stellen</span><span style="color:var(--rose);font-weight:600;">Sterk gegroeid</span></div>
+          <div class="growth-bar"><div class="growth-fill" style="width:80%"></div></div>
+        </div>
+        <div class="growth-item">
+          <div class="growth-label"><span>Differentiëren in werkvormen</span><span style="color:var(--amber);font-weight:600;">Gegroeid</span></div>
+          <div class="growth-bar"><div class="growth-fill" style="width:78%"></div></div>
+        </div>
+        <div class="growth-item">
+          <div class="growth-label"><span>Lesvoorbereiding</span><span style="color:var(--amber);font-weight:600;">In ontwikkeling</span></div>
+          <div class="growth-bar"><div class="growth-fill" style="width:60%"></div></div>
+        </div>
+
+        <div class="timeline" style="margin-top:48px;">
+          <div class="timeline-item">
+            <div class="timeline-label">Start stage</div>
+            <div class="timeline-title">Signaleren van het hiaat</div>
+            <div class="timeline-text">Ik merk dat consequent handelen mij moeite kost. Leerlingen overschrijden grenzen; ik reageer inconsistent.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">Feedback moment</div>
+            <div class="timeline-title">Gesprek met stagebegeleider</div>
+            <div class="timeline-text">Mijn begeleider benoemt het patroon helder. We maken samen een actieplanpiramide als methodisch kader.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">Actie</div>
+            <div class="timeline-title">Co-constructie met leerlingen</div>
+            <div class="timeline-text">Samen met de klas stel ik gedragsregels op. Leerlingen bepalen zelf de spelregels — en dat werkt.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">Nu</div>
+            <div class="timeline-title">Heldere structuur, meer plezier</div>
+            <div class="timeline-text">Leerlingen kennen mijn grenzen. De sfeer in de les is veiliger en positiever. Ik kan helder terugkomen op gemaakte afspraken.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── SECTIE 4: PROFILERING ─── -->
+<section id="profilering">
+  <div class="section">
+    <div class="chapter-opener">
+      <div class="chapter-number">04</div>
+      <div>
+        <div class="section-label">Sectie vier</div>
+        <h2 class="section-title">Profilering & <em>Toekomst</em></h2>
+        <p class="section-luk">LUK 10.2 — Profileren · Toekomstrol, talenten & ontwikkelpunten, profileringsactiviteiten, concrete stappen</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p class="body-text">
+          Ik weet wie ik wil zijn als professional. Een docent die energie en plezier uitstraalt, leerlingen enthousiast maakt om te bewegen en tegelijkertijd een veilige omgeving creëert waar iedereen zichzelf durft te zijn. Dat beeld is niet vaag of idealistisch — ik ben hem al aan het worden.
+        </p>
+        <p class="body-text" style="margin-top:24px;">
+          Mijn ideale rol combineert lesgeven op een basisschool met werken als buurtsportcoach. Die combinatie maak ik op dit moment al: in de gymzaal tijdens de schooldag, daarna in de wijk als aanspreekpunt voor beweging en sport. Twee werelden die elkaar versterken. Als buurtsportcoach zie je leerlingen ook buiten de schoolcontext, en die inzichten neem je mee naar de les.
+        </p>
+
+        <div class="profile-grid">
+          <div class="profile-cell">
+            <div class="cell-title cell-title-white">Mijn krachten</div>
+            <p>Enthousiasmeren zit in mijn DNA. Ik ben flexibel, pas mij snel aan aan de situatie en weet leerlingen mee te nemen in mijn energie. Ik ben onderdeel van de groep — niet de docent die van afstand kijkt, maar degene die er midden in staat.</p>
+          </div>
+          <div class="profile-cell">
+            <div class="cell-title">Ontwikkelpunten</div>
+            <p>Mijn nabijheid aan leerlingen kan ook een valkuil zijn: ik ben soms te informeel. Daarnaast is lesvoorbereiding een punt van aandacht — de energie om te improviseren is er altijd, maar structurele voorbereiding vraagt bewuste inspanning.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:32px;">Profileringsactiviteiten</h3>
+
+        <div class="act-list">
+          <div class="act-item">
+            <span class="act-icon">🎓</span>
+            <div class="act-text">
+              <strong>3 studiedagen meegelopen</strong>
+              Professionele ontwikkeling binnen het bedrijf, bijgedragen aan teamvisie en werkwijze.
+            </div>
+          </div>
+          <div class="act-item">
+            <span class="act-icon">🩺</span>
+            <div class="act-text">
+              <strong>EHBO-cursus Oranje Kruis</strong>
+              Certificaat behaald via Sportservice De Vallei. Professioneel ingezet voor leerlingveiligheid.
+            </div>
+          </div>
+          <div class="act-item">
+            <span class="act-icon">🏆</span>
+            <div class="act-text">
+              <strong>School Olympiade</strong>
+              Meegeholpen met organisatie en uitvoering van het evenement voor meerdere scholen.
+            </div>
+          </div>
+          <div class="act-item">
+            <span class="act-icon">⚽</span>
+            <div class="act-text">
+              <strong>Clinics VV Bennekom</strong>
+              Voetbalclinics gegeven bij een lokale voetbalvereniging, sport verbonden aan gemeenschap.
+            </div>
+          </div>
+          <div class="act-item" style="grid-column:1/-1;">
+            <span class="act-icon">📊</span>
+            <div class="act-text">
+              <strong>Masterclass MQ Scan</strong>
+              Op school gegeven over de MQ-scan — motorisch kwaliteitsonderzoek als instrument voor ontwikkeling.
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top:40px;">
+          <div class="label">Concrete toekomststappen</div>
+          <p>
+            Na mijn afstuderen begin ik direct bij Sportservice De Vallei — het contract ligt al klaar. Op de lange termijn overweeg ik de stap naar het voortgezet onderwijs of het MBO, om mijn bereik als bewegingsopvoeder te verbreden. Maar eerst: bouwen aan wat er al staat, en dat met volle overtuiging.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── NAWOORD ─── -->
+<section class="nawoord" id="nawoord">
+  <h2>Bewegen is meer<br>dan een vak</h2>
+  <p>
+    Dit magazine is het resultaat van twee jaar leren, vallen, opstaan en groeien. Van de gymzaal in Harskamp tot de wijksportactiviteit in Ede; van het gesprek met mijn stagebegeleider over consequent handelen tot de bottle flip die een klas deed ontploffen van lachen.
+  </p>
+  <p>
+    Ik heb ontdekt dat mijn kracht niet in perfectie zit, maar in aanwezigheid. In de energie die ik meeneem, in de vraag die ik stel als een leerling afhaakt, in de oefening die ik op het laatste moment omgooi omdat ik voel dat de groep iets anders nodig heeft.
+  </p>
+  <p>
+    Bewegen begint bij emotie. Dat geloofde ik toen ik met deze stage begon, en ik geloof het nu sterker dan ooit. Ik neem die overtuiging mee — naar elke les, elke school, elke leerling die ik nog ga ontmoeten.
+  </p>
+  <div class="sig">Roy de Graaf</div>
+  <div class="sig-sub">ALO · HAN Nijmegen · LIO-stage Sportservice De Vallei · 2025</div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <span><strong>Roy de Graaf</strong> — Professionele Identiteit LUK 9 & 10</span>
+  <span>ALO · HAN Nijmegen · Sportservice De Vallei, Ede</span>
+  <span>Afstudeeropdracht 2025</span>
+</footer>
+
+<script>
+  // Subtle fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.section, .story-box, .highlight-box, .card, .act-item, .timeline-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
